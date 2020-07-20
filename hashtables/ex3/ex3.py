@@ -11,13 +11,15 @@ def intersection(arrays):
 
     i = 0
     start_dict = dictionaries[0]
+    # print("start_dict ", start_dict)
     duplicates = []
 
     while i < len(arrays):
         new_dupes = [key for key in dictionaries[i] if key in start_dict]
-
-        duplicates = new_dupes
+        # print(dict.fromkeys(new_dupes, ""))
+        start_dict = dict.fromkeys(new_dupes, "")
         i += 1
+    duplicates = list(start_dict)
 
     return duplicates
 
