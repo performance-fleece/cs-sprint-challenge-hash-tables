@@ -17,27 +17,35 @@ def get_indices_of_item_weights(weights, length, limit):
     #             # weight_dict[weights[i]] = {i}
     #     i += 1
     # print(weight_dict)
-
+    result = ()
     while i < len(weights):
-        if weights[i] <= limit:
-            
-            print(weights[i], i)
-            if weights[i] in weight_dict:
-                # weight_dict[weights[i]] = weight_dict[weights[i]].append(i)
-                print("item is in dict")
-                weight_dict[weights[i]].append(i)
-                print(weight_dict[weights[i]])
-            else: 
-                weight_dict[weights[i]] = [ i ]
-                print("item not in dict")
+        check_weight = weights[i]
+        if check_weight <= limit:
+
+            if check_weight in weight_dict and target / check_weight == 2:
+                if target / weights[i] == 2:
+                    result = (weight_dict[weights[i]])
+
+            else:
+                weight_dict[weights[i]] = i
         i += 1
+
     print(weight_dict)
 
+    for key in weight_dict:
+        target = limit - key
 
-    # return None
+        print(target)
+        if target in weight_dict:
 
-weights_3 = [4, 4]
+            if target > key:
+                result = (weight_dict[target], weight_dict[key])
+            result = (int(weight_dict[key]), int(weight_dict[target]))
+
+    return result
 
 
+weights_3 = [12, 6, 7, 14, 19, 3, 0, 25, 40]
 
-get_indices_of_item_weights(weights_3, 2, 8)
+
+print(get_indices_of_item_weights(weights_3, 9, 7))
