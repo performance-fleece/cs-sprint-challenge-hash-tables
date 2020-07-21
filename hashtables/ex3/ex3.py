@@ -5,25 +5,25 @@ def intersection(arrays):
     dictionaries = []
     # Your code here
     i = 0
+    # create list of dictionaries with numbers for keys
     for array in arrays:
         new_dict = dict.fromkeys(array, "")
         dictionaries.append(new_dict)
 
     i = 0
     start_dict = dictionaries[0]
-    # print("start_dict ", start_dict)
     duplicates = []
 
+    # Step through arrays, compare first two dictionaries for duplicates, then compare subsequent dictionaries against duplicate dictionary.
     while i < len(arrays):
         new_dupes = [key for key in dictionaries[i] if key in start_dict]
-        # print(dict.fromkeys(new_dupes, ""))
         start_dict = dict.fromkeys(new_dupes, "")
         i += 1
     duplicates = list(start_dict)
 
     return duplicates
 
-    # return result
+
 if __name__ == "__main__":
     arrays = []
 
