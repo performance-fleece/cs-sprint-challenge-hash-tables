@@ -26,7 +26,7 @@ def has_negatives(a):
     # return results
 
     """
-    Below uses list comprehension completes ~ 0.9s
+    Below uses list comprehension - fastest
     """
     # positive = dict()
     # negative = dict()
@@ -40,7 +40,7 @@ def has_negatives(a):
     # results = [key for key in positive if key in negative]
 
     """
-    variation 2 test completes ~0.95s
+    variation 2 test completes - marginally slower
     """
     data = dict.fromkeys(a, "")
 
