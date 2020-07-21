@@ -25,9 +25,3 @@ def get_indices_of_item_weights(weights, length, limit):
                 a = weight_dict[target]
                 b = weight_dict[key]
             return ([a, b])
-
-
-weights_3 = [4, 4]
-
-
-print(get_indices_of_item_weights(weights_3, 2, 8))
